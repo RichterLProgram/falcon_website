@@ -4,12 +4,12 @@ import { DroneScene, useDroneProgress } from './components/DroneScene'
 
 /* â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const SPECS = [
-  { label: 'Flight Time', value: '48 min' },
-  { label: 'Range', value: '28 km' },
-  { label: 'Max Payload', value: '12 kg' },
-  { label: 'Top Speed', value: '120 km/h' },
-  { label: 'Ceiling', value: '4 500 m' },
-  { label: 'IP Rating', value: 'IP67' },
+  { label: 'Flight Time', value: '30 min' },
+  { label: 'Range', value: '25 km' },
+  { label: 'Max Payload', value: '5 kg' },
+  { label: 'Top Speed', value: '100 km/h' },
+  { label: 'Ceiling', value: '4000 m' },
+  { label: 'IP Rating', value: 'IP56' },
   { label: 'Deployment', value: '< 90 s' },
   { label: 'Sensors', value: 'RGB + Thermal' },
 ]
