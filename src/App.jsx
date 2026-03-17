@@ -24,8 +24,8 @@ const COMPONENTS = [
   { label: 'BMS', value: 'Mauch PL-200' },
   { label: 'Telemetry', value: 'RFD900x' },
   { label: 'GPS / RTK', value: 'Holybro H-RTK F9P' },
-  { label: 'Motors', value: '6× T-Motor U8 Pro' },
-  { label: 'ESCs', value: '6× T-Motor Alpha 60A' },
+  { label: 'Motors', value: '4× T-Motor U8 Pro' },
+  { label: 'ESCs', value: '4× T-Motor Alpha 60A' },
   { label: 'Propellers', value: 'Carbon Props' },
   { label: 'Frame', value: 'Custom Composite' },
 ]

@@ -422,18 +422,19 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 44px 0;
+  padding: 44px 40px;
   border-right: 1px solid rgba(255, 255, 255, 0.08);
-  padding-right: 40px;
+}
+
+/* First column of each row — no left padding, flush with container */
+.stat-item:nth-child(4n+1) {
   padding-left: 0;
 }
 
-.stat-item:not(:first-child) {
-  padding-left: 40px;
-}
-
-.stat-item:last-child {
+/* Last column of each row — no right border */
+.stat-item:nth-child(4n) {
   border-right: none;
+  padding-right: 0;
 }
 
 .stat-value {
@@ -700,12 +701,12 @@
   color: rgba(255, 42, 42, 0.6);
 }
 
-/*  Responsive  */
 @media (max-width: 900px) {
   .site-header { padding: 18px 28px; }
   .story-step { padding: 0 32px 72px; }
   .specs-stats { grid-template-columns: repeat(2, 1fr); }
-  .stat-item:nth-child(2) { border-right: none; }
+  .stat-item { border-right: none; padding-left: 0; padding-right: 0; }
+  .stat-item:nth-child(odd) { padding-right: 32px; border-right: 1px solid rgba(255, 255, 255, 0.08); }
   .stat-item:nth-child(even) { padding-left: 32px; }
   .team-grid { grid-template-columns: 1fr; max-width: 380px; }
   .site-footer { flex-direction: column; align-items: flex-start; gap: 8px; padding: 24px 28px; }
@@ -720,8 +721,9 @@
   .specs-stats { grid-template-columns: repeat(2, 1fr); }
   .hero-title { font-size: clamp(3.4rem, 18vw, 7rem); }
   .story-step { padding: 0 24px 64px; }
-  .stat-item { padding: 24px 0; padding-right: 20px; }
-  .stat-item:not(:first-child) { padding-left: 20px; }
+  .stat-item { padding: 24px 0; border-right: none; padding-left: 0; padding-right: 0; }
+  .stat-item:nth-child(odd) { padding-right: 20px; border-right: 1px solid rgba(255, 255, 255, 0.08); }
+  .stat-item:nth-child(even) { padding-left: 20px; }
   .stat-value { font-size: clamp(1.5rem, 7vw, 2rem); }
   .team-card { padding: 28px 24px; }
   /* Shrink canvas on mobile so model doesn't dominate */
