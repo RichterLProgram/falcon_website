@@ -51,7 +51,7 @@ const STORY_STEPS = [
 const TEAM = [
   { name: 'Lukas Mueller', role: 'Mechanical Engineering · TUM', img: '/lukas.jpg' },
   { name: 'Linus Richter', role: 'Computer Science · TUM', img: '/linus.jpg' },
-  { name: 'Shawn Blender', role: 'Computer Science · TUM', img: '/shawn.jpg' },
+  { name: 'Shawn Blender', role: 'Computer Science · LMU', img: '/shawn.jpg' },
 ]
 
 /* â”€â”€â”€ Active story section tracker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -123,7 +123,6 @@ function App() {
       â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
       <section className="hero-section" id="hero">
         <div className="hero-eyebrow">
-          <span className="pulse-dot" />
           Autonomous Rescue Drone · Munich
         </div>
         <h1 className="hero-title">
@@ -272,11 +271,11 @@ function App() {
             who want to reshape alpine rescue.
           </p>
           <div className="contact-actions">
-            <a className="btn-primary btn-large" href="mailto:falcon.rescue.drone@gmail.com">
+            <a className="btn-primary btn-large" href="mailto:falcon-rescue@gmail.com">
               Become a partner
             </a>
-            <a className="btn-ghost btn-large" href="mailto:falcon.rescue.drone@gmail.com">
-              falcon.rescue.drone@gmail.com
+            <a className="btn-ghost btn-large" href="mailto:falcon-rescue@gmail.com">
+              falcon-rescue@gmail.com
             </a>
           </div>
         </div>
