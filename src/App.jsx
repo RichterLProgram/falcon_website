@@ -4,12 +4,12 @@ import { DroneScene, useDroneProgress } from './components/DroneScene'
 
 /* â”€â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const SPECS = [
-  { label: 'Flight Time', value: '30 min' },
-  { label: 'Range', value: '25 km' },
-  { label: 'Max Payload', value: '5 kg' },
-  { label: 'Top Speed', value: '100 km/h' },
-  { label: 'Ceiling', value: '4000 m' },
-  { label: 'IP Rating', value: 'IP56' },
+  { label: 'Flight Time', value: '48 min' },
+  { label: 'Range', value: '28 km' },
+  { label: 'Max Payload', value: '12 kg' },
+  { label: 'Top Speed', value: '120 km/h' },
+  { label: 'Ceiling', value: '4 500 m' },
+  { label: 'IP Rating', value: 'IP67' },
   { label: 'Deployment', value: '< 90 s' },
   { label: 'Sensors', value: 'RGB + Thermal' },
 ]
@@ -52,6 +52,29 @@ const TEAM = [
   { name: 'Lukas Mueller', role: 'Mechanical Engineering · TUM', img: '/lukas.jpg' },
   { name: 'Linus Richter', role: 'Computer Science · TUM', img: '/linus.jpg' },
   { name: 'Shawn Blender', role: 'Computer Science · LMU', img: '/shawn.jpg' },
+  { name: 'Stefan Pavlovic', role: 'Computer Science · DHBW', img: '/stefan.jpg' },
+]
+
+const BOM = [
+  { category: 'Flight Controller', budget: '200 €', mid: '350 €', high: '500 €' },
+  { category: 'AI Computer', budget: '400 €', mid: '600 €', high: '900 €' },
+  { category: 'RGB Camera', budget: '150 €', mid: '250 €', high: '400 €' },
+  { category: 'Thermal Camera', budget: '300 €', mid: '500 €', high: '3 500 €' },
+  { category: 'Gimbal', budget: '150 €', mid: '400 €', high: '800 €' },
+  { category: 'Battery System', budget: '500 €', mid: '1 000 €', high: '8 000 €' },
+  { category: 'Telemetry', budget: '100 €', mid: '300 €', high: '600 €' },
+  { category: 'GPS / RTK', budget: '100 €', mid: '300 €', high: '700 €' },
+  { category: 'Motors', budget: '300 €', mid: '900 €', high: '1 200 €' },
+  { category: 'ESCs', budget: '180 €', mid: '360 €', high: '600 €' },
+  { category: 'Propellers', budget: '50 €', mid: '100 €', high: '200 €' },
+  { category: 'Other', budget: '200 €', mid: '300 €', high: '500 €' },
+]
+
+const MILESTONES = [
+  { phase: 'Architecture & Simulation', status: 'done', label: 'Completed' },
+  { phase: 'Engineering Prototype', status: 'current', label: 'In Progress' },
+  { phase: 'First Flight Prototype', status: 'next', label: '2026' },
+  { phase: 'Field Testing & Certification', status: 'future', label: '2027' },
 ]
 
 /* â”€â”€â”€ Active story section tracker â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -111,11 +134,18 @@ function App() {
           FALCON
         </a>
         <nav className="site-nav">
+          <a href="#problem">Problem</a>
           <a href="#story">Story</a>
           <a href="#specs">Specs</a>
+          <a href="#stage">Roadmap</a>
           <a href="#team">Team</a>
         </nav>
-        <a className="nav-cta" href="#contact">Request demo</a>
+        <a className="nav-cta" href="/downloads/FALCON_Project_Kit.zip" download>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true" style={{marginRight: 6}}>
+            <path d="M8 1v10M4 8l4 4 4-4M2 14h12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+          Project Kit
+        </a>
       </header>
 
       {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -167,6 +197,38 @@ function App() {
           ))}
         </div>
       </section>
+
+      {/* PROBLEM */}
+      <section className="problem-section" id="problem">
+        <div className="section-inner">
+          <div className="section-label">The Problem</div>
+          <h2 className="section-title">
+            Every minute lost<br />costs lives.
+          </h2>
+          <div className="problem-stats">
+            <div className="problem-stat">
+              <span className="problem-number">3–6 h</span>
+              <span className="problem-desc">Average alpine search<br />mission duration</span>
+            </div>
+            <div className="problem-divider" />
+            <div className="problem-stat">
+              <span className="problem-number highlight">&lt; 20 min</span>
+              <span className="problem-desc">Projected search time<br />with FALCON</span>
+            </div>
+            <div className="problem-divider" />
+            <div className="problem-stat">
+              <span className="problem-number">300+</span>
+              <span className="problem-desc">Alpine rescue missions<br />per year in Bavaria alone</span>
+            </div>
+          </div>
+          <p className="problem-bottom">
+            Helicopter deployment is slow, expensive and weather-dependent.
+            Ground teams are limited by terrain and daylight.
+            FALCON fills the gap with autonomous, all-weather rapid response.
+          </p>
+        </div>
+      </section>
+
 
       {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
           SPECS
@@ -230,6 +292,76 @@ function App() {
           <p className="mission-caption">Core mission principle · TUM Startup 2026</p>
         </div>
       </section>
+      {/* DEVELOPMENT STAGE */}
+      <section className="stage-section" id="stage">
+        <div className="section-inner">
+          <div className="section-label">Development stage</div>
+          <h2 className="section-title">
+            From simulation<br />to first flight.
+          </h2>
+          <p className="stage-intro">
+            FALCON is currently in the engineering prototype stage.
+            The system architecture, propulsion system and power budget have been
+            fully designed and validated through simulation.
+          </p>
+          <div className="milestones">
+            {MILESTONES.map((m, i) => (
+              <div key={i} className={`milestone milestone-${m.status}`}>
+                <div className="milestone-dot" />
+                {i < MILESTONES.length - 1 && <div className="milestone-line" />}
+                <div className="milestone-info">
+                  <span className="milestone-phase">{m.phase}</span>
+                  <span className="milestone-label">{m.label}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+          <div className="stage-cta">
+            <p className="stage-cta-text">
+              Our next milestone is the first flight prototype, planned for 2026.<br />
+              We’re raising early seed funding to build and test the first operational system.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* BILL OF MATERIALS */}
+      <section className="bom-section" id="bom">
+        <div className="section-inner">
+          <div className="section-label">Bill of Materials</div>
+          <h2 className="section-title">
+            Transparent cost<br />structure.
+          </h2>
+          <p className="bom-intro">
+            Our mid-range configuration targets the optimal balance between
+            performance and cost — built for real-world alpine rescue operations.
+          </p>
+          <div className="bom-table-wrap">
+            <div className="bom-table">
+              <div className="bom-header">
+                <span className="bom-col-cat">Component</span>
+                <span className="bom-col">Budget</span>
+                <span className="bom-col bom-col-mid">Mid-Range</span>
+                <span className="bom-col">High-End</span>
+              </div>
+              {BOM.map((item) => (
+                <div className="bom-row" key={item.category}>
+                  <span className="bom-col-cat">{item.category}</span>
+                  <span className="bom-col">{item.budget}</span>
+                  <span className="bom-col bom-col-mid">{item.mid}</span>
+                  <span className="bom-col">{item.high}</span>
+                </div>
+              ))}
+              <div className="bom-row bom-total">
+                <span className="bom-col-cat">Total</span>
+                <span className="bom-col">≈ 2 630 €</span>
+                <span className="bom-col bom-col-mid">≈ 5 360 €</span>
+                <span className="bom-col">≈ 17 900 €</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
           TEAM
@@ -238,7 +370,7 @@ function App() {
         <div className="section-inner">
           <div className="section-label">Founding team</div>
           <h2 className="section-title">
-            Three engineers.<br />One mission.
+            Four engineers.<br />One mission.
           </h2>
           <div className="team-grid">
             {TEAM.map((m, i) => (
@@ -266,7 +398,7 @@ function App() {
             Help us build<br />the first FALCON.
           </h2>
           <p className="contact-sub">
-            We're a TUM startup with a production-ready concept and a clear roadmap.
+            We're a TUM startup with a working prototype in active development and a clear roadmap.
             We're looking for partners, investors and organisations
             who want to reshape alpine rescue.
           </p>
@@ -284,7 +416,7 @@ function App() {
       {/* â”€â”€ Footer â”€â”€ */}
       <footer className="site-footer">
         <span className="footer-brand">FALCON</span>
-        <span className="footer-copy">© 2026 · Lukas Mueller, Linus Richter, Shawn Blender · Munich</span>
+        <span className="footer-copy">© 2026 · Lukas Mueller, Linus Richter, Shawn Blender, Stefan Pavlovic · Munich</span>
         <span className="footer-tag">TUM Startup</span>
       </footer>
 
